@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0ea5e9, #f97316);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0284c7, #ea580c);
+}
+
+/* Root Elements */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-dark-950 text-gray-100;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display font-bold;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  @apply text-4xl md:text-6xl lg:text-7xl;
+}
+
+h2 {
+  @apply text-3xl md:text-5xl;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+/* Custom Utilities */
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-xl bg-black/30 border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 via-accent-400 to-primary-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[2px] before:bg-gradient-to-r before:from-primary-500 before:via-accent-400 before:to-primary-500 before:-z-10;
+  }
+
+  .btn-primary {
+  @apply px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-lg font-semibold text-primary-500 glass hover:text-white border-2 border-primary-500 hover:bg-white/5 transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-accent {
+    @apply px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-500 transition-all duration-300 transform hover:scale-105;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .btn-accent:hover {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+  }
+
+  .card-glass {
+  @apply glass rounded-2xl p-6 hover:bg-white/[0.15] transition-all duration-500 hover:border-blue-400/50;
+}
+
+.card-glass:hover {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+  .scroll-reveal {
+    @apply opacity-0;
+  }
+
+  .reveal {
+    @apply opacity-100;
+  }
+
+  .section-title {
+    @apply text-center mb-16;
+  }
+
+  .section-title h2 {
+    @apply gradient-text mb-4;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.8);
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 49% {
+    border-right-color: rgba(14, 165, 233, 1);
+  }
+  50%, 100% {
+    border-right-color: transparent;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-typewriter {
+  animation: typewriter 3.5s steps(40, end) 1s 1 normal both;
+  overflow: hidden;
+  border-right: 3px solid rgba(14, 165, 233, 1);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typewriter 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Loading animation */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(14, 165, 233, 0.3);
+  border-top: 5px solid #0ea5e9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
