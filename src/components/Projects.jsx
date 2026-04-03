@@ -12,9 +12,9 @@ const Projects = () => {
       id: 1,
       title: 'E-Commerce Platform',
       description: 'Modern e-commerce website with product catalog, shopping cart, and secure payment integration.',
-      image: 'images\e-commerce.jpg',
+      image: '/images/e-commerce.jpg',
       tags: ['React', 'Node.js', 'Stripe', 'Tailwind CSS'],
-      liveUrl: 'https://saai-codes.github.io/shopping-website/',
+      liveUrl: 'https://e-commerce-2-0-theta.vercel.app/',
       githubUrl: 'https://github.com/saai-codes/shopping-website/blob/main/index.html',
     },
     {

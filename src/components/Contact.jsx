@@ -10,7 +10,7 @@ const Contact = () => {
     email: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, ed] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
