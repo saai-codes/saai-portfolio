@@ -34,6 +34,7 @@ const Projects = () => {
       tags: ['HTML', 'CSS', 'JavaScript', 'Performance'],
       liveUrl: '#',
       githubUrl: '#',
+      status: 'Coming Soon 🚀',
     },
     {
       id: 4,
@@ -52,6 +53,7 @@ const Projects = () => {
       tags: ['Next.js', 'Markdown', 'SEO', 'Analytics'],
       liveUrl: '#',
       githubUrl: '#',
+      status: 'In Progress ⚒️',
     },
     {
       id: 6,
@@ -61,6 +63,7 @@ const Projects = () => {
       tags: ['React', 'Charts.js', 'APIs', 'Authentication'],
       liveUrl: 'https://saas-website-weld.vercel.app/',
       githubUrl: 'https://github.com/saai-codes/Saas-website',
+      
     },
   ];
 
@@ -144,6 +147,19 @@ const Projects = () => {
                     </motion.a>
                   </div>
                 </div>
+                {project.status && (
+  
+    
+      
+                   // Overlay for In Progress or Coming Soon projects  
+                <div className="absolute inset-0 flex items-center justify-center bg-black/70 z-10">
+                    <p className="text-white text-xl font-bold animate-pulse">
+                  {project.status === 'coming-soon'
+                              ? 'Coming Soon 🚀'
+                             : 'In Progress ⚒️'}
+                      </p>
+                    </div>
+                  )}
 
                 {/* Content */}
                 <div className="p-6">
